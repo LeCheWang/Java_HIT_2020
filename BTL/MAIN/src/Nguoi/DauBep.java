@@ -1,3 +1,5 @@
+package Nguoi;
+
 public class DauBep extends NhanVien{
     private String viTri;
     private int namKn;
@@ -25,5 +27,38 @@ public class DauBep extends NhanVien{
         if (viTri.compareTo("BEP TRUONG")==0 )
             return 30000000*getNgayLamViec()/26;
         else return 7000000*getNgayLamViec()/26;
+    }
+
+    public DauBep(String name, String gender, int age, String maNhanVien, int ngayLamViec, String viTri, int namKn) {
+        super(name, gender, age, maNhanVien, ngayLamViec);
+        this.viTri = viTri;
+        this.namKn = namKn;
+    }
+
+    public DauBep(String maNhanVien, int ngayLamViec, String viTri, int namKn) {
+        super(maNhanVien, ngayLamViec);
+        this.viTri = viTri;
+        this.namKn = namKn;
+    }
+
+    public DauBep(String viTri, int namKn) {
+        this.viTri = viTri;
+        this.namKn = namKn;
+    }
+
+    public String getViTri() {
+        return viTri;
+    }
+
+    public void setViTri(String viTri) {
+        this.viTri = viTri;
+    }
+
+    public int getNamKn() {
+        return namKn;
+    }
+
+    public void setNamKn(int namKn) {
+        this.namKn = namKn;
     }
 }

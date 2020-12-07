@@ -1,3 +1,5 @@
+package Nguoi;
+
 import java.util.Scanner;
 
 public class Person {

@@ -1,3 +1,5 @@
+package Nguoi;
+
 import java.util.Scanner;
 
 public class Giamdoc extends Person{
@@ -27,4 +29,22 @@ public class Giamdoc extends Person{
         this.phoneNumber = phoneNumber;
     }
     public Giamdoc(){}
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public Scanner getSc() {
+        return sc;
+    }
+
+    @Override
+    public void setSc(Scanner sc) {
+        this.sc = sc;
+    }
 }

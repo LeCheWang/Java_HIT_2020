@@ -1,4 +1,5 @@
-import java.util.NavigableMap;
+package Nguoi;
+
 import java.util.Scanner;
 
 public class QuanLi extends Giamdoc{
