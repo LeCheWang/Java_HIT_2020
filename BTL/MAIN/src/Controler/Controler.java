@@ -74,12 +74,12 @@ public class Controler {
     }
     public void WriteDauBepToFile (String fileName, DauBep dauBep){
         OpenFileToWrite(fileName);
-        printWriter.println(dauBep.getName()+"|"+dauBep.getGender()+"|"+dauBep.getAge()+"|"+dauBep.getMaNhanVien()+"|"+dauBep.getNgayLamViec()+"|"+dauBep.getNamKn()+"|"+dauBep.getViTri());
+        printWriter.println(dauBep.getMaNhanVien()+"|"+dauBep.getName()+"|"+dauBep.getGender()+"|"+dauBep.getAge()+"|"+dauBep.getNgayLamViec()+"|"+dauBep.getViTri()+"|"+dauBep.getNamKn());
         CloseFileAfterWriter();
     }
     public void WritePhucVuToFile (String fileName, PhucVu phucVu){
         OpenFileToWrite(fileName);
-        printWriter.println(phucVu.getMaNhanVien()+"|"+phucVu.getNgayLamViec()+"|"+phucVu.getViTri()+"|"+phucVu.getCaLam()+"|"+phucVu.getSoNgayNghi());
+        printWriter.println(phucVu.getMaNhanVien()+"|"+phucVu.getName()+"|"+ phucVu.getGender()+"|"+phucVu.getAge()+"|"+phucVu.getNgayLamViec()+"|"+phucVu.getCaLam()+"|"+phucVu.getViTri()+"|"+phucVu.getSoNgayNghi()  );
         CloseFileAfterWriter();
     }
     public ArrayList<KhachAnTaiCho> CreateKhachAnTaiChoFromData(String fileName){
@@ -119,6 +119,76 @@ public class Controler {
         }
         CloseFileAfterRead();
         return listKhachOrder;
+    }
+    public ArrayList<DauBep> CreateDauBepFromData(String fileName){
+        OpenFileToRead(fileName);
+        ArrayList<DauBep> listDauBep = new ArrayList<>();
+        while(scanner.hasNext()){
+            String data = scanner.nextLine();
+            String [] KhachStr = data.split("\\|");
+            DauBep dauBep = new DauBep(KhachStr[0], KhachStr[1], KhachStr[2], Integer.parseInt(KhachStr[3]), Integer.parseInt(KhachStr[4]), KhachStr[5], Integer.parseInt(KhachStr[6]));
+            listDauBep.add(dauBep);
+        }
+        CloseFileAfterRead();
+        return listDauBep;
+    }
+//    phucVu.getMaNhanVien()+"|"+phucVu.getName()+"|"+ phucVu.getGender()+"|"+phucVu.getAge()+"|"+phucVu.getNgayLamViec()+"|"+phucVu.getCaLam()+"|"+phucVu.getViTri()+"|"+phucVu.getSoNgayNghi()+"|"+phucVu.Luong()
+    public ArrayList<PhucVu> CreatePhucVuFromData(String fileName){
+        OpenFileToRead(fileName);
+        ArrayList<PhucVu> listPhucVu = new ArrayList<>();
+        while(scanner.hasNext()){
+            String data = scanner.nextLine();
+            String [] KhachStr = data.split("\\|");
+            PhucVu phucVu = new PhucVu(KhachStr[0],KhachStr[1],KhachStr[2], Integer.parseInt(KhachStr[3]), Integer.parseInt(KhachStr[4]), KhachStr[5], KhachStr[6], Integer.parseInt(KhachStr[7]));
+            listPhucVu.add(phucVu);
+        }
+        CloseFileAfterRead();
+        return listPhucVu;
+    }
+    public void UpdateKhachAnTaiChoToFile(ArrayList<KhachAnTaiCho> khachAnTaiChos,String fileName){
+        File file = new File(fileName);
+        if(file.exists()){
+            file.delete();
+        }
+        for(KhachAnTaiCho x : khachAnTaiChos){
+            WriteKhachAnTaiChoToFile(fileName, x);
+        }
+    }
+    public void UpdateKhachMuaVeToFile(ArrayList<KhachMuaVe> khachMuaVes ,String fileName){
+        File file = new File(fileName);
+        if(file.exists()){
+            file.delete();
+        }
+        for(KhachMuaVe x : khachMuaVes){
+            WriteKhachMuaVeToFile(fileName, x);
+        }
+    }
+    public void UpdateKhachOrderToFile(ArrayList<KhachOrder> khachOrders ,String fileName){
+        File file = new File(fileName);
+        if(file.exists()){
+            file.delete();
+        }
+        for(KhachOrder x : khachOrders){
+            WriteKhachOrderToFile(fileName, x);
+        }
+    }
+    public void UpdateDauBepToFile(ArrayList<DauBep> dauBeps ,String fileName){
+        File file = new File(fileName);
+        if(file.exists()){
+            file.delete();
+        }
+        for(DauBep x : dauBeps){
+            WriteDauBepToFile(fileName, x);
+        }
+    }
+    public void UpdatePhucVuToFile(ArrayList<PhucVu> phucVus ,String fileName){
+        File file = new File(fileName);
+        if(file.exists()){
+            file.delete();
+        }
+        for(PhucVu x : phucVus){
+            WritePhucVuToFile(fileName, x);
+        }
     }
 
 

@@ -7,7 +7,9 @@ public class KhachMuaVe extends Khach{
         super(IDKhach, tenKhach);
         this.soMonAn = soMonAn;
     }
-
+    public void Output(){
+        System.out.printf("%-20s%-20s%-20d\n", getIDKhach(), getTenKhach(), soMonAn);
+    }
     public int getSoMonAn() {
         return soMonAn;
     }

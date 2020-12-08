@@ -6,7 +6,7 @@ public class NhanVien extends Person{
     private String maNhanVien;
     private int ngayLamViec;
     Scanner sc=new Scanner(System.in);
-    public NhanVien(String name, String gender, int age, String maNhanVien, int ngayLamViec) {
+    public NhanVien(String maNhanVien,String name, String gender, int age,  int ngayLamViec) {
         super(name, gender, age);
         this.maNhanVien = maNhanVien;
         this.ngayLamViec = ngayLamViec;

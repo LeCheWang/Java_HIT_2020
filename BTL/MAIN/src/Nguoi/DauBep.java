@@ -14,7 +14,7 @@ public class DauBep extends NhanVien{
         namKn=sc.nextInt();
     }
     public void title(){
-        System.out.printf("%-20s%-20s%-15s%-10s%-20s%-20s%-20s%-20s\n", "MÃ NHÂN VIÊN", "NAME", "GENDER", "AGE", "BỘ PHẬN", "LÀM VIỆC TỪ(ngày)", "Vị Trí", "Kinh Nghiệm");
+
     }
     @Override
     public void Output() {
@@ -23,14 +23,13 @@ public class DauBep extends NhanVien{
 
     }
     public long Luong(){
-        long luong=0;
-        if (viTri.compareTo("BEP TRUONG")==0 )
+        if (viTri.compareToIgnoreCase("BEP TRUONG")==0 )
             return 30000000*getNgayLamViec()/26;
         else return 7000000*getNgayLamViec()/26;
     }
 
-    public DauBep(String name, String gender, int age, String maNhanVien, int ngayLamViec, String viTri, int namKn) {
-        super(name, gender, age, maNhanVien, ngayLamViec);
+    public DauBep(String maNhanVien, String name, String gender, int age, int ngayLamViec, String viTri, int namKn) {
+        super(maNhanVien, name, gender, age, ngayLamViec);
         this.viTri = viTri;
         this.namKn = namKn;
     }

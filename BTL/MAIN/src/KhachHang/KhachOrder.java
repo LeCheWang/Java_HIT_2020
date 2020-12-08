@@ -9,7 +9,9 @@ public class KhachOrder extends Khach{
         this.soDT = soDT;
         this.diaChi = diaChi;
     }
-
+    public void Outpu(){
+        System.out.printf("%-20s%-20s%-20s%-20s\n", getIDKhach(), getTenKhach(), soDT, diaChi);
+    }
     public String getSoDT() {
         return soDT;
     }
